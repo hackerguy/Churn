@@ -1,4 +1,4 @@
-# MortgageDefault
+# Customer Churn
 
 This Flask application utilizes IBM's Watson Machine Learning APIs to make predictions against a deployed machine learning
 model created using Spark MLlib.
