@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<br>
+<br>
+<h2>Will a customer churn or not?</h2>
+<p>Input the following information to make a prediction.</p>
+<br>
+
+<div class="results">
+    <h2 id="prediction"></h2>
+    <h2 id="probability"></h2>
+    <br><br>
+    <canvas id="myChart" width="200px" height="200px"></canvas>
+
+</div>
+
+<!-- <form action="#" method="post" class="add-entry" onsubmit="return true;"> -->
+<form action="#" method="post" class="add-entry" onsubmit="return false;">
+
+    <dl>
+
+        <dt>Gender:</dt>
+        <dd><label><input type="radio" name="Gender" class="onchange" value="M" checked>Male</label>
+            <label><input type="radio" name="Gender" class="onchange" value="F">Female</label>
+        </dd><br>
+
+        <dt>Marital Status:</dt>
+        <dd><label><input type="radio" name="Status" class="onchange" value="S" checked>Single</label>
+            <label><input type="radio" name="Status" class="onchange" value="M">Married</label>
+        </dd><br>
+
+        <dt>Car Owner:</dt>
+        <dd><label><input type="radio" name="CarOwner" class="onchange" value="Y" checked>Yes</label>
+            <label><input type="radio" name="CarOwner" class="onchange" value="N">No</label>
+        </dd><br>
+
+        <dt>Payment Method:</dt>
+        <dd><label><input type="radio" name="Paymethod" class="onchange" value="CC" checked>Credit Card</label>
+            <label><input type="radio" name="Paymethod" class="onchange" value="CH">Cash</label>
+            <label><input type="radio" name="Paymethod" class="onchange" value="Auto">Automatic Deduction</label>
+        </dd><br>
+
+        <dt>Calling Plan - Local:</dt>
+        <dd><label><input type="radio" name="LocalBilltype" class="onchange" value="Budget" checked>Budget</label>
+            <label><input type="radio" name="LocalBilltype" class="onchange" value="FreeLocal">Free Local Calls</label>
+        </dd><br>
+
+        <dt>Calling Plan - Long Distance:</dt>
+        <dd><label><input type="radio" name="LongDistanceBilltype" class="onchange" value="Standard" checked>Stadard</label>
+            <label><input type="radio" name="LongDistanceBilltype" class="onchange" value="Intnl_discount">International Discount</label>
+        </dd><br>
+
+        <dt>Number of Children:</dt>
+        <dd><label><input type="radio" name="Children" class="onchange" value="0" checked>0</label>
+            <label><input type="radio" name="Children" class="onchange" value="1">1</label>
+            <label><input type="radio" name="Children" class="onchange" value="2">2</label>
+            <label><input type="radio" name="Children" class="onchange" value="3">3</label>
+            <label><input type="radio" name="Children" class="onchange" value="4">4</label>
+            <label><input type="radio" name="Children" class="onchange" value="5">5 or more</label>
+        
+        <dt>Income:</dt>
+        <dd>
+            $<input type="number" min="0" max="1000000" step="10000" name="EstIncome" class="onchange" value="100000" required">
+        </dd><br>
+        
+        <dt>Age:</dt>
+        <dd>
+            <input type="number" min="1" max="150" step="" name="Age" class="onchange" value="25" required">
+        </dd><br>
+
+        <dt>Average Monthly Long Distance Minutes: <span id="slider_value_LongDistance" style="color:blue;font-weight:bold;"></span></dt>
+        <dd>
+            0 <input type="range" min="0" max="100" step="1" name="LongDistance" id="LongDistance" class="onchange" value="0" onchange="show_value_LongDistance(this.value)"> 100
+        </dd><br>
+
+        <dt>Average Monthly International Minutes: <span id="slider_value_International" style="color:blue;font-weight:bold;"></span></dt>
+        <dd>
+            0 <input type="range" min="0" max="100" step="1" name="International" id="International" class="onchange" value="0" onchange="show_value_International(this.value)"> 100
+        </dd><br>
+
+        <dt>Average Monthly Local Minutes: <span id="slider_value_Local" style="color:blue;font-weight:bold;"></span></dt>
+        <dd>
+            0 <input type="range" min="0" max="100" step="1" name="Local" id="Local" class="onchange" value="0" onchange="show_value_Local(this.value)"> 100
+        </dd><br>
+
+        <dt>Number of Dropped Calls in Past Month:</dt>
+        <dd><label><input type="radio" name="Dropped" class="onchange" value="0" checked>0</label>
+            <label><input type="radio" name="Dropped" class="onchange" value="1">1</label>
+            <label><input type="radio" name="Dropped" class="onchange" value="2">2</label>
+            <label><input type="radio" name="Dropped" class="onchange" value="3">3</label>
+            <label><input type="radio" name="Dropped" class="onchange" value="4">4</label>
+            <label><input type="radio" name="Dropped" class="onchange" value="5">5 or more</label>
+        </dd><br>
+
+        <dt>Rate Plan:</dt>
+        <dd>
+            <select name="RatePlan" id="RatePlan" class="onchange">
+                <option value="0">Entry</option>
+                <option value="1"> Bronze</option>
+                <option value="2">Silver</option>
+                <option value="3">Gold</option>
+                <option value="4">Platinum</option>
+            </select>
+        </dd><br>
+        <!-- <dt><input type="submit" value="Submit"></dt> -->
+    </dl>
+</form>
+
+
+
+{% endblock %}
